@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Good Red Bad</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script data-main="js/require.config" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+</head>
+
+<body>
+    <div id="main" class="container">
+        <div class="left">
+            <!--
+            <div class="">Level</div><br />
+            <div id="level" class=" big">1</div>
+            -->
+            <div class="">Lives</div><br />
+            <div id="lives" class=" big">3</div>
+        </div>
+        <div class="right">
+            <div class="">Multiplier</div><br />
+            <div id="multiplier" class=" big">0</div>
+            <div class="">Points</div><br />
+            <div id="points" class=" big">0</div>
+        </div>
+    </div>
+    <div id="info" class="container big"></div>
+    <script>
+        var instance; // use in browser console
+        require(["require.config"], function () {
+            require(["app"], function (app) {
+                instance = new app.App();
+                instance.launch();
+            })
+        });
+        </script>
+</body>
+
+</html>
