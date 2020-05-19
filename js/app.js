@@ -1,6 +1,7 @@
 define(["require", "exports", "three", "./say", "./intro"], function (require, exports, THREE, say_1, intro_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.App = void 0;
     class App {
         constructor() {
             say_1.Say.console("GGRB Game v0.1.1");

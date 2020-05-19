@@ -1,6 +1,7 @@
 define(["require", "exports", "three"], function (require, exports, THREE) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Collision = void 0;
     class Collision {
         constructor() {
             this.raycaster = new THREE.Raycaster();

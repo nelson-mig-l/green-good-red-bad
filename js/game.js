@@ -1,6 +1,7 @@
 define(["require", "exports", "three", "./world", "./hero", "./collision", "./stage", "./say", "./obstacle", "./over", "./explosion"], function (require, exports, THREE, world_1, hero_1, collision_1, stage_1, say_1, obstacle_1, over_1, explosion_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Game = void 0;
     class Game extends THREE.Scene {
         constructor() {
             super();

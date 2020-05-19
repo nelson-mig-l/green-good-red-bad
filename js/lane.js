@@ -1,6 +1,7 @@
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.LANES = exports.Lane = void 0;
     class Lane {
         constructor(index) {
             this.index = index;

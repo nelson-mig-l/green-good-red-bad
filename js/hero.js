@@ -1,6 +1,7 @@
 define(["require", "exports", "three", "./lane"], function (require, exports, THREE, lane_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Hero = void 0;
     class Hero extends THREE.Mesh {
         constructor(radius) {
             var geometry = new THREE.DodecahedronGeometry(radius, 1);

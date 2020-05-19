@@ -1,6 +1,7 @@
 define(["require", "exports", "three"], function (require, exports, THREE) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Obstacle = exports.ObstacleFactory = exports.ObstacleKind = void 0;
     var ObstacleKind;
     (function (ObstacleKind) {
         ObstacleKind[ObstacleKind["GOOD"] = 0] = "GOOD";

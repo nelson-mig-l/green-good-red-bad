@@ -1,6 +1,7 @@
 define(["require", "exports", "three", "./obstacle", "./lane"], function (require, exports, THREE, obstacle_1, lane_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.World = void 0;
     const SECTIONS_BEFORE = 4;
     const SECTIONS_AFTER = 12;
     const SECTIONS_TOTAL = SECTIONS_BEFORE + SECTIONS_AFTER;

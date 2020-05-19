@@ -1,6 +1,7 @@
 define(["require", "exports", "three"], function (require, exports, THREE) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Explosion = exports.ExplosionManager = void 0;
     // Particle System (Points) parameter
     const MOVEMENT_SPEED = 0.25;
     const TOTAL_OBJECTS = 100;
