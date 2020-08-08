@@ -7,7 +7,6 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
             super();
             this.fog = new THREE.FogExp2(0xF0FFF0, 0.14);
             this.background = new THREE.Color(0xF0FFF0);
-            // lights
             let light = new THREE.HemisphereLight(0xFFFAFA, 0x000000, 0.9);
             this.add(light);
             let sun = new THREE.DirectionalLight(0xCDC1C5, 0.9);
@@ -32,7 +31,7 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
         }
         update(timeDelta) {
             let obstacle = this.world.sf.up().obstacle;
-            if (obstacle != undefined && obstacle.visible) { // not visible no collision possible
+            if (obstacle != undefined && obstacle.visible) {
                 let collision = this.coll.check(this.hero, obstacle);
                 if (collision != undefined) {
                     this.handleCollision(collision);
@@ -100,4 +99,3 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
     }
     exports.Game = Game;
 });
-//# sourceMappingURL=game.js.map

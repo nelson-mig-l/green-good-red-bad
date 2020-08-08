@@ -8,4 +8,3 @@ requirejs.config({
         "app": ["three"]
     }
 });
-//# sourceMappingURL=require.config.js.map

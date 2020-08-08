@@ -2,11 +2,10 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Explosion = exports.ExplosionManager = void 0;
-    // Particle System (Points) parameter
     const MOVEMENT_SPEED = 0.25;
     const TOTAL_OBJECTS = 100;
     const OBJECT_SIZE = 0.25;
-    const EXPLOSION_DURATION = 1000; // 1 second
+    const EXPLOSION_DURATION = 1000;
     class ExplosionManager {
         constructor(world) {
             this.explosions = [];
@@ -19,7 +18,6 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
             setTimeout(function (w, e) {
                 w.remove(explosion.object);
                 if (e.length > 3) {
-                    //console.log("too many explosions");
                     e.shift();
                 }
             }, EXPLOSION_DURATION, this.world, this.explosions);
@@ -64,4 +62,3 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
     }
     exports.Explosion = Explosion;
 });
-//# sourceMappingURL=explosion.js.map

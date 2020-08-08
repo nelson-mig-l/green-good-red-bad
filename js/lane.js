@@ -5,7 +5,7 @@ define(["require", "exports"], function (require, exports) {
     class Lane {
         constructor(index) {
             this.index = index;
-            var unit = Math.PI / 96; // distance between lanes
+            var unit = Math.PI / 96;
             this.angle = index * unit;
         }
     }
@@ -24,4 +24,3 @@ define(["require", "exports"], function (require, exports) {
     exports.LANES.RIGHT.left = exports.LANES.CENTER;
     exports.LANES.RIGHT.right = exports.LANES.RIGHT;
 });
-//# sourceMappingURL=lane.js.map

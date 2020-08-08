@@ -12,4 +12,3 @@ define(["require", "exports"], function (require, exports) {
     }
     exports.StageManager = StageManager;
 });
-//# sourceMappingURL=stage.js.map

@@ -34,7 +34,6 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
             obstacle.lookAt(this.center);
         }
     }
-    // Section Pool or SectionManager with pools
     class SectionFactory {
         constructor(world) {
             this.sections = [];
@@ -53,7 +52,6 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
             this.radius = world.radius;
             this.center = world.position.clone();
         }
-        // get one section from the pool
         request(up) {
             var section = this.sections.shift();
             this.reposition(up, section);
@@ -61,12 +59,8 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
             return section;
         }
         reposition(up, section) {
-            //this.test(up, section);
-            //this.randomize(up, section);
-            //this.empty(up, section);
             this.sequential(up, section);
         }
-        // return up section for collision detection
         up() {
             return this.sections[SECTIONS_BEFORE];
         }
@@ -134,7 +128,6 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
                 color: 0xFFFAFA, flatShading: true
             });
             super(geometry, material);
-            // poles to the sides
             this.rotation.z = Math.PI / 2;
             this.radius = radius;
             this.helper = new THREE.Spherical();
@@ -146,7 +139,6 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
             var section = rot / SECTION_SIZE;
             return Math.floor(section);
         }
-        // did we changed section?
         update() {
             var up = this.upSection();
             if (this.lastSection === up) {
@@ -162,4 +154,3 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
     }
     exports.World = World;
 });
-//# sourceMappingURL=world.js.map

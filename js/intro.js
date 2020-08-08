@@ -5,8 +5,7 @@ define(["require", "exports", "three", "./say", "./stage", "./game"], function (
     class Intro extends THREE.Scene {
         constructor() {
             super();
-            this.background = new THREE.Color(0xFF00A0);
-            // lights
+            this.background = new THREE.Color(0xC3EFB7);
             var light = new THREE.HemisphereLight(0xFFFAFA, 0x000000, 0.9);
             this.add(light);
             var sun = new THREE.DirectionalLight(0xCDC1C5, 0.9);
@@ -17,7 +16,6 @@ define(["require", "exports", "three", "./say", "./stage", "./game"], function (
             say_1.Say.info("Use arrow keys to move <br/> Click to start");
         }
         update(timeDelta) {
-            //
         }
         handleKeyEvent(event) {
             this.startGame();
@@ -31,4 +29,3 @@ define(["require", "exports", "three", "./say", "./stage", "./game"], function (
     }
     exports.Intro = Intro;
 });
-//# sourceMappingURL=intro.js.map

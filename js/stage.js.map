@@ -1,1 +1,0 @@
-{"version":3,"file":"stage.js","sourceRoot":"","sources":["../../src/stage.ts"],"names":[],"mappings":";;;;IAUA,MAAa,YAAY;QAErB,MAAM,CAAC,OAAO,CAAC,KAAY;YACvB,IAAI,KAAK,GAAG,IAAI,WAAW,CAAC,OAAO,EAAE;gBACjC,MAAM,EAAE,KAAK;aAChB,CAAC,CAAC;YACH,QAAQ,CAAC,aAAa,CAAC,KAAK,CAAC,CAAC;QAClC,CAAC;KAEJ;IATD,oCASC"}

@@ -5,8 +5,7 @@ define(["require", "exports", "three", "./say", "./game"], function (require, ex
     class Over extends THREE.Scene {
         constructor() {
             super();
-            this.background = new THREE.Color(0xFF00A0);
-            // lights
+            this.background = new THREE.Color(0xEFB7B7);
             var light = new THREE.HemisphereLight(0xFFFAFA, 0x000000, 0.9);
             this.add(light);
             var sun = new THREE.DirectionalLight(0xCDC1C5, 0.9);
@@ -17,10 +16,8 @@ define(["require", "exports", "three", "./say", "./game"], function (require, ex
             say_1.Say.info("Game over <br/> Click to restart :)");
         }
         update(timeDelta) {
-            //
         }
         handleKeyEvent(event) {
-            // this.startGame();
         }
         handleClickEvent(event) {
             this.startGame();
@@ -34,4 +31,3 @@ define(["require", "exports", "three", "./say", "./game"], function (require, ex
     }
     exports.Over = Over;
 });
-//# sourceMappingURL=over.js.map

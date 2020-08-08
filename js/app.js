@@ -17,6 +17,7 @@ define(["require", "exports", "three", "./say", "./intro"], function (require, e
                 renderer.setSize(window.innerWidth, window.innerHeight);
             }
             window.addEventListener('resize', onWindowResize, false);
+            let scene = new intro_1.Intro();
             let handleKeyEvent = function (event) {
                 scene.handleKeyEvent(event);
             };
@@ -28,7 +29,7 @@ define(["require", "exports", "three", "./say", "./intro"], function (require, e
             document.onmousedown = handleClickEvent;
             let hasFocus = true;
             document.addEventListener('visibilitychange', function (e) {
-                clock.getDelta(); // reset clock on visibility change
+                clock.getDelta();
                 hasFocus = !(document.hidden);
             });
             document.addEventListener('stage', function (e) {
@@ -38,7 +39,6 @@ define(["require", "exports", "three", "./say", "./intro"], function (require, e
             camera.position.z = 4;
             camera.position.y = 30;
             camera.position.x = 0;
-            let scene = new intro_1.Intro();
             scene.initialize(camera);
             this.camera = camera;
             this.scene = scene;
@@ -59,4 +59,3 @@ define(["require", "exports", "three", "./say", "./intro"], function (require, e
     }
     exports.App = App;
 });
-//# sourceMappingURL=app.js.map

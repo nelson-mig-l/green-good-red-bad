@@ -30,4 +30,3 @@ define(["require", "exports", "three", "./lane"], function (require, exports, TH
     }
     exports.Hero = Hero;
 });
-//# sourceMappingURL=hero.js.map

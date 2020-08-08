@@ -33,4 +33,3 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
     }
     exports.Obstacle = Obstacle;
 });
-//# sourceMappingURL=obstacle.js.map
