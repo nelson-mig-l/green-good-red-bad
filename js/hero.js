@@ -6,7 +6,7 @@ define(["require", "exports", "three", "./lane"], function (require, exports, TH
         constructor(radius) {
             var geometry = new THREE.DodecahedronGeometry(radius, 1);
             var material = new THREE.MeshStandardMaterial({
-                color: 0xE5F2F2, flatShading: true
+                color: 0x6FA8DC, flatShading: true
             });
             super(geometry, material);
             this.lane = lane_1.LANES.CENTER;
