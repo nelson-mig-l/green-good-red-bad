@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: "js",
     paths: {
-        "three": "../lib/three.min",
+        "three": "https://unpkg.com/three@0.124.0/build/three.min",
         "app": "app"
     },
     shim: {
