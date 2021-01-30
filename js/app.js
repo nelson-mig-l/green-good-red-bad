@@ -5,6 +5,7 @@ define(["require", "exports", "three", "./say", "./intro"], function (require, e
     class App {
         constructor() {
             say_1.Say.console("GGRB Game v0.1.1");
+            say_1.Say.console("THREE r" + THREE.REVISION);
             let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
             let renderer = new THREE.WebGLRenderer({
                 antialias: true

@@ -32,32 +32,29 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
     class Explosion {
         constructor(position, color) {
             this.dirs = [];
-            var geometry = new THREE.Geometry();
+            var geometry = new THREE.BufferGeometry();
+            var positions = [];
             for (var i = 0; i < TOTAL_OBJECTS; i++) {
-                var vertex = new THREE.Vector3();
-                vertex.x = position.x;
-                vertex.y = position.y;
-                vertex.z = position.z;
-                geometry.vertices.push(vertex);
+                positions.push(position.x);
+                positions.push(position.y);
+                positions.push(position.z);
                 this.dirs.push(new THREE.Vector3((Math.random() * MOVEMENT_SPEED) - (MOVEMENT_SPEED / 2), (Math.random() * MOVEMENT_SPEED) - (MOVEMENT_SPEED / 2), (Math.random() * MOVEMENT_SPEED) - (MOVEMENT_SPEED / 2)));
             }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
             var material = new THREE.PointsMaterial({
                 size: OBJECT_SIZE,
                 color: color
             });
             var particles = new THREE.Points(geometry, material);
             this.object = particles;
-            this.dir = new THREE.Vector3((Math.random() * MOVEMENT_SPEED) - (MOVEMENT_SPEED / 2), (Math.random() * MOVEMENT_SPEED) - (MOVEMENT_SPEED / 2), (Math.random() * MOVEMENT_SPEED) - (MOVEMENT_SPEED / 2));
         }
         animate(timeDelta) {
             var pCount = TOTAL_OBJECTS;
+            let positions = this.object.geometry.attributes.position;
             while (pCount--) {
-                var particle = this.object.geometry['vertices'][pCount];
-                particle.y += this.dirs[pCount].y;
-                particle.x += this.dirs[pCount].x;
-                particle.z += this.dirs[pCount].z;
+                positions.setXYZ(pCount, positions.getX(pCount) + this.dirs[pCount].x, positions.getY(pCount) + this.dirs[pCount].y, positions.getZ(pCount) + this.dirs[pCount].z);
             }
-            this.object.geometry['verticesNeedUpdate'] = true;
+            this.object.geometry.attributes.position.needsUpdate = true;
         }
     }
     exports.Explosion = Explosion;

@@ -14,9 +14,10 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
         }
         checks(the, others) {
             let theGeo = the.geometry;
+            let vertices = this.toVertices(theGeo);
             var originPoint = the.position.clone();
-            for (var vertexIndex = 0; vertexIndex < theGeo.vertices.length; vertexIndex++) {
-                var localVertex = theGeo.vertices[vertexIndex].clone();
+            for (var vertexIndex = 0; vertexIndex < vertices.length; vertexIndex++) {
+                var localVertex = vertices[vertexIndex].clone();
                 var globalVertex = localVertex.applyMatrix4(the.matrix);
                 var directionVector = globalVertex.sub(the.position);
                 var ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize());
@@ -26,6 +27,14 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
                 }
             }
             return;
+        }
+        toVertices(geometry) {
+            let vertices = [];
+            const positions = geometry.attributes.position.array;
+            for (let k = 0; k < positions.length; k += 3) {
+                vertices.push(new THREE.Vector3(positions[k], positions[k + 1], positions[k + 2]));
+            }
+            return vertices;
         }
     }
     exports.Collision = Collision;
