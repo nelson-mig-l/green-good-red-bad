@@ -4,8 +4,8 @@ define(["require", "exports", "three", "./lane"], function (require, exports, TH
     exports.Hero = void 0;
     class Hero extends THREE.Mesh {
         constructor(radius) {
-            var geometry = new THREE.DodecahedronGeometry(radius, 1);
-            var material = new THREE.MeshStandardMaterial({
+            let geometry = new THREE.DodecahedronGeometry(radius, 1);
+            let material = new THREE.MeshStandardMaterial({
                 color: 0x6FA8DC, flatShading: true
             });
             super(geometry, material);
@@ -24,7 +24,7 @@ define(["require", "exports", "three", "./lane"], function (require, exports, TH
         }
         animate(timeDelta) {
             this.rotation.x += -26 * timeDelta;
-            var val = THREE.MathUtils.lerp(this.position.x, this.lane.index, 6 * timeDelta);
+            let val = THREE.MathUtils.lerp(this.position.x, this.lane.index, 6 * timeDelta);
             this.position.x = val;
         }
     }

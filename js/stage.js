@@ -4,7 +4,7 @@ define(["require", "exports"], function (require, exports) {
     exports.StageManager = void 0;
     class StageManager {
         static request(stage) {
-            var event = new CustomEvent('stage', {
+            let event = new CustomEvent('stage', {
                 detail: stage
             });
             document.dispatchEvent(event);

@@ -40,9 +40,9 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
             this.greens = [];
             this.reds = [];
             this.counter = 0;
-            for (var i = 0; i < SECTIONS_TOTAL; i++) {
-                var even = i % 2 == 0;
-                var section = new Section(obstacle_1.ObstacleFactory.border(even), obstacle_1.ObstacleFactory.border(even));
+            for (let i = 0; i < SECTIONS_TOTAL; i++) {
+                let even = i % 2 == 0;
+                let section = new Section(obstacle_1.ObstacleFactory.border(even), obstacle_1.ObstacleFactory.border(even));
                 this.sections.push(section);
                 world.add(section);
                 this.greens.push(obstacle_1.ObstacleFactory.good());
@@ -53,7 +53,7 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
             this.center = world.position.clone();
         }
         request(up) {
-            var section = this.sections.shift();
+            let section = this.sections.shift();
             this.reposition(up, section);
             this.sections.push(section);
             return section;
@@ -70,7 +70,7 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
         }
         test(up, section) {
             this.empty(up, section);
-            var obstacle = this.greens.shift();
+            let obstacle = this.greens.shift();
             this.greens.push(obstacle);
             if (up % 12 == 0) {
                 this.helper.reposition(up + SECTIONS_AFTER, lane_1.LANES.LEFT, obstacle);
@@ -85,7 +85,7 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
         }
         randomize(up, section) {
             this.empty(up, section);
-            var obstacle;
+            let obstacle;
             if (Math.random() < 0.1) {
                 obstacle = this.reds.shift();
                 this.reds.push(obstacle);
@@ -94,7 +94,7 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
                 obstacle = this.greens.shift();
                 this.greens.push(obstacle);
             }
-            var lane = Math.floor(Math.random() * 3);
+            let lane = Math.floor(Math.random() * 3);
             switch (lane) {
                 case 0:
                     this.helper.reposition(up + SECTIONS_AFTER, lane_1.LANES.LEFT, obstacle);
@@ -123,8 +123,8 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
     }
     class World extends THREE.Mesh {
         constructor(radius) {
-            var geometry = new THREE.SphereGeometry(radius, 40, 40);
-            var material = new THREE.MeshStandardMaterial({
+            let geometry = new THREE.SphereGeometry(radius, 40, 40);
+            let material = new THREE.MeshStandardMaterial({
                 color: 0xFFFAFA, flatShading: true
             });
             super(geometry, material);
@@ -135,17 +135,17 @@ define(["require", "exports", "three", "./obstacle", "./lane"], function (requir
             this.lastSection = -1;
         }
         upSection() {
-            var rot = this.rotation.x % (2 * Math.PI) + Math.PI / 2;
-            var section = rot / SECTION_SIZE;
+            let rot = this.rotation.x % (2 * Math.PI) + Math.PI / 2;
+            let section = rot / SECTION_SIZE;
             return Math.floor(section);
         }
         update() {
-            var up = this.upSection();
+            let up = this.upSection();
             if (this.lastSection === up) {
                 return false;
             }
             this.lastSection = up;
-            var section = this.sf.request(up);
+            let section = this.sf.request(up);
             return true;
         }
         animate(timeDelta) {

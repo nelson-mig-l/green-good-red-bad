@@ -5,7 +5,7 @@ define(["require", "exports"], function (require, exports) {
     class Lane {
         constructor(index) {
             this.index = index;
-            var unit = Math.PI / 96;
+            let unit = Math.PI / 96;
             this.angle = index * unit;
         }
     }

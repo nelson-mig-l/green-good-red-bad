@@ -6,9 +6,9 @@ define(["require", "exports", "three", "./say", "./game"], function (require, ex
         constructor() {
             super();
             this.background = new THREE.Color(0xEFB7B7);
-            var light = new THREE.HemisphereLight(0xFFFAFA, 0x000000, 0.9);
+            let light = new THREE.HemisphereLight(0xFFFAFA, 0x000000, 0.9);
             this.add(light);
-            var sun = new THREE.DirectionalLight(0xCDC1C5, 0.9);
+            let sun = new THREE.DirectionalLight(0xCDC1C5, 0.9);
             sun.position.set(12, 6, -7);
             this.add(sun);
         }
@@ -23,7 +23,7 @@ define(["require", "exports", "three", "./say", "./game"], function (require, ex
             this.startGame();
         }
         startGame() {
-            var e = new CustomEvent('stage', {
+            let e = new CustomEvent('stage', {
                 detail: new game_1.Game()
             });
             document.dispatchEvent(e);

@@ -16,15 +16,15 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
             return new Obstacle(0.75, 0xFF0000, ObstacleKind.BAD);
         }
         static border(even) {
-            var color = even ? 0x000000 : 0xFFFF00;
+            let color = even ? 0x000000 : 0xFFFF00;
             return new Obstacle(0.5, color, ObstacleKind.BORDER);
         }
     }
     exports.ObstacleFactory = ObstacleFactory;
     class Obstacle extends THREE.Mesh {
         constructor(size, color, kind) {
-            var geometry = new THREE.BoxGeometry(size, size, size * 2);
-            var material = new THREE.MeshStandardMaterial({
+            let geometry = new THREE.BoxGeometry(size, size, size * 2);
+            let material = new THREE.MeshStandardMaterial({
                 color: color, flatShading: true
             });
             super(geometry, material);

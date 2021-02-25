@@ -6,9 +6,9 @@ define(["require", "exports", "three", "./say", "./stage", "./game"], function (
         constructor() {
             super();
             this.background = new THREE.Color(0xC3EFB7);
-            var light = new THREE.HemisphereLight(0xFFFAFA, 0x000000, 0.9);
+            let light = new THREE.HemisphereLight(0xFFFAFA, 0x000000, 0.9);
             this.add(light);
-            var sun = new THREE.DirectionalLight(0xCDC1C5, 0.9);
+            let sun = new THREE.DirectionalLight(0xCDC1C5, 0.9);
             sun.position.set(12, 6, -7);
             this.add(sun);
         }

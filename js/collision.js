@@ -7,7 +7,7 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
             this.raycaster = new THREE.Raycaster();
         }
         check(the, other) {
-            var arr = [];
+            let arr = [];
             if (other != undefined)
                 arr.push(other);
             return this.checks(the, arr);
@@ -15,13 +15,13 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
         checks(the, others) {
             let theGeo = the.geometry;
             let vertices = this.toVertices(theGeo);
-            var originPoint = the.position.clone();
-            for (var vertexIndex = 0; vertexIndex < vertices.length; vertexIndex++) {
-                var localVertex = vertices[vertexIndex].clone();
-                var globalVertex = localVertex.applyMatrix4(the.matrix);
-                var directionVector = globalVertex.sub(the.position);
-                var ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize());
-                var collisionResults = ray.intersectObjects(others);
+            let originPoint = the.position.clone();
+            for (let vertexIndex = 0; vertexIndex < vertices.length; vertexIndex++) {
+                let localVertex = vertices[vertexIndex].clone();
+                let globalVertex = localVertex.applyMatrix4(the.matrix);
+                let directionVector = globalVertex.sub(the.position);
+                let ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize());
+                let collisionResults = ray.intersectObjects(others);
                 if (collisionResults.length > 0 && collisionResults[0].distance < directionVector.length()) {
                     return collisionResults[0].object;
                 }
