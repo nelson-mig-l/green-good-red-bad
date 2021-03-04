@@ -26,7 +26,7 @@ define(["require", "exports", "three"], function (require, exports, THREE) {
                     return collisionResults[0].object;
                 }
             }
-            return;
+            return null;
         }
         toVertices(geometry) {
             let vertices = [];
