@@ -28,6 +28,7 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
         }
         initialize(camera) {
             camera.lookAt(this.hero.position);
+            this.audio = new audio_1.AudioFx(camera);
         }
         update(timeDelta) {
             let obstacle = this.world.sf.up().obstacle;
@@ -38,7 +39,7 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
                 }
             }
             if (this.world.update()) {
-                audio_1.AudioFx.section();
+                this.audio.section();
                 if (this.multiplier > 1)
                     this.multiplier--;
                 text_1.TextOverlay.multiplier(this.multiplier);
@@ -78,14 +79,14 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
                 this.multiplier += 2;
                 text_1.TextOverlay.points(this.points);
                 text_1.TextOverlay.multiplier(this.multiplier);
-                audio_1.AudioFx.green();
+                this.audio.green();
             }
             else {
                 this.lives--;
                 this.multiplier = 1;
                 text_1.TextOverlay.lives(this.lives);
                 text_1.TextOverlay.multiplier(this.multiplier);
-                audio_1.AudioFx.red();
+                this.audio.red();
                 text_1.TextOverlay.message("Be careful!");
                 if (this.lives == 0) {
                     this.hero.die();

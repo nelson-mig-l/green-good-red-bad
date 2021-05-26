@@ -4,7 +4,7 @@ define(["require", "exports", "three", "./text", "./intro"], function (require, 
     exports.App = void 0;
     class App {
         constructor() {
-            text_1.TextOverlay.console("GGRB Game v0.1.1");
+            text_1.TextOverlay.console("GGRB Game v0.1.2");
             text_1.TextOverlay.console("THREE r" + THREE.REVISION);
             let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
             let renderer = new THREE.WebGLRenderer({
