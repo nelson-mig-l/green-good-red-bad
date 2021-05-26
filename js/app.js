@@ -1,11 +1,11 @@
-define(["require", "exports", "three", "./say", "./intro"], function (require, exports, THREE, say_1, intro_1) {
+define(["require", "exports", "three", "./text", "./intro"], function (require, exports, THREE, text_1, intro_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.App = void 0;
     class App {
         constructor() {
-            say_1.Say.console("GGRB Game v0.1.1");
-            say_1.Say.console("THREE r" + THREE.REVISION);
+            text_1.TextOverlay.console("GGRB Game v0.1.1");
+            text_1.TextOverlay.console("THREE r" + THREE.REVISION);
             let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
             let renderer = new THREE.WebGLRenderer({
                 antialias: true

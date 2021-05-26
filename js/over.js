@@ -1,4 +1,4 @@
-define(["require", "exports", "three", "./say", "./game"], function (require, exports, THREE, say_1, game_1) {
+define(["require", "exports", "three", "./text", "./game"], function (require, exports, THREE, text_1, game_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Over = void 0;
@@ -13,7 +13,7 @@ define(["require", "exports", "three", "./say", "./game"], function (require, ex
             this.add(sun);
         }
         initialize(camera) {
-            say_1.Say.info("Game over <br/> Click to restart :)");
+            text_1.TextOverlay.info("Game over <br/> Click to restart :)");
         }
         update(timeDelta) {
         }

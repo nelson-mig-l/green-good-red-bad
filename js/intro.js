@@ -1,4 +1,4 @@
-define(["require", "exports", "three", "./say", "./stage", "./game"], function (require, exports, THREE, say_1, stage_1, game_1) {
+define(["require", "exports", "three", "./text", "./stage", "./game"], function (require, exports, THREE, text_1, stage_1, game_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Intro = void 0;
@@ -13,7 +13,7 @@ define(["require", "exports", "three", "./say", "./stage", "./game"], function (
             this.add(sun);
         }
         initialize(camera) {
-            say_1.Say.info("Use arrow keys to move <br/> Click to start");
+            text_1.TextOverlay.info("Use arrow keys to move <br/> Click to start");
         }
         update(timeDelta) {
         }

@@ -1,4 +1,4 @@
-define(["require", "exports", "three", "./world", "./hero", "./collision", "./stage", "./say", "./obstacle", "./over", "./explosion"], function (require, exports, THREE, world_1, hero_1, collision_1, stage_1, say_1, obstacle_1, over_1, explosion_1) {
+define(["require", "exports", "three", "./world", "./hero", "./collision", "./stage", "./text", "./audio", "./obstacle", "./over", "./explosion"], function (require, exports, THREE, world_1, hero_1, collision_1, stage_1, text_1, audio_1, obstacle_1, over_1, explosion_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Game = void 0;
@@ -22,9 +22,9 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
             this.multiplier = 1;
             this.points = 0;
             this.lives = 3;
-            say_1.Say.points(this.points);
-            say_1.Say.lives(this.lives);
-            say_1.Say.message("Quick! Get ready!");
+            text_1.TextOverlay.points(this.points);
+            text_1.TextOverlay.lives(this.lives);
+            text_1.TextOverlay.message("Quick! Get ready!");
         }
         initialize(camera) {
             camera.lookAt(this.hero.position);
@@ -38,10 +38,10 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
                 }
             }
             if (this.world.update()) {
-                say_1.Play.section();
+                audio_1.AudioFx.section();
                 if (this.multiplier > 1)
                     this.multiplier--;
-                say_1.Say.multiplier(this.multiplier);
+                text_1.TextOverlay.multiplier(this.multiplier);
             }
             this.world.animate(timeDelta);
             this.hero.animate(timeDelta);
@@ -76,20 +76,20 @@ define(["require", "exports", "three", "./world", "./hero", "./collision", "./st
             if (kind === obstacle_1.ObstacleKind.GOOD) {
                 this.points += this.multiplier;
                 this.multiplier += 2;
-                say_1.Say.points(this.points);
-                say_1.Say.multiplier(this.multiplier);
-                say_1.Play.green();
+                text_1.TextOverlay.points(this.points);
+                text_1.TextOverlay.multiplier(this.multiplier);
+                audio_1.AudioFx.green();
             }
             else {
                 this.lives--;
                 this.multiplier = 1;
-                say_1.Say.lives(this.lives);
-                say_1.Say.multiplier(this.multiplier);
-                say_1.Play.red();
-                say_1.Say.message("Be careful!");
+                text_1.TextOverlay.lives(this.lives);
+                text_1.TextOverlay.multiplier(this.multiplier);
+                audio_1.AudioFx.red();
+                text_1.TextOverlay.message("Be careful!");
                 if (this.lives == 0) {
                     this.hero.die();
-                    say_1.Say.message("You lost!");
+                    text_1.TextOverlay.message("You lost!");
                     setTimeout(function () {
                         stage_1.StageManager.request(new over_1.Over());
                     }, 2000);
